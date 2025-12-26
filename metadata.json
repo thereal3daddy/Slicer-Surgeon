@@ -1,0 +1,7 @@
+{
+  "name": "Slicer Surgeon - 3D Print Fail Analyzer",
+  "description": "A professional tool for 3D printing enthusiasts and engineers to diagnose print failures from photos using AI vision analysis.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
