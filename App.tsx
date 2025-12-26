@@ -49,6 +49,7 @@ const App: React.FC = () => {
 
   return (
     <Layout>
+      <Analytics />
       {!state.image && !state.analyzing && (
         <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-12 py-12">
           <div className="max-w-2xl text-center space-y-6">
