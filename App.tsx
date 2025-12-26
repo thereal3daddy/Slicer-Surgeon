@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { AnalysisView } from './components/AnalysisView';
 import { AppState } from './types';
 import { analyzePrintFailure } from './services/geminiService';
+import { Analytics } from "@vercel/analytics/next"
 
 const App: React.FC = () => {
   const [state, setState] = useState<AppState & { grounding: any[] | null }>({
@@ -55,23 +56,23 @@ const App: React.FC = () => {
               <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.4em] font-mono">Ready to Help</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase italic leading-none">
-              Detect <span className="text-blue-500">Problems</span>. <br/>Fix <span className="text-blue-500">Prints</span>.
+              Detect <span className="text-blue-500">Problems</span>. <br />Fix <span className="text-blue-500">Prints</span>.
             </h2>
             <p className="text-slate-500 text-lg leading-relaxed font-medium">
-              Upload a clear photo of your failed 3D print. 
+              Upload a clear photo of your failed 3D print.
               Our system will analyze the image and give you a simple fix guide.
             </p>
           </div>
 
           <label className="relative group cursor-pointer">
             <div className="absolute inset-0 bg-blue-500/10 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            
+
             <div className="relative flex flex-col items-center justify-center w-72 h-72 md:w-96 md:h-96 rounded-[3rem] border border-blue-500/10 bg-slate-900/20 backdrop-blur-sm group-hover:border-blue-500/40 group-hover:bg-slate-900/40 transition-all duration-500 overflow-hidden shadow-2xl">
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/30"></div>
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/30"></div>
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/30"></div>
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/30"></div>
-              
+
               <div className="p-6 bg-white/5 rounded-full mb-6 group-hover:bg-blue-600 group-hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all duration-500">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -82,7 +83,7 @@ const App: React.FC = () => {
             </div>
             <input type="file" className="hidden" accept="image/*" onChange={handleFileUpload} />
           </label>
-          
+
           <div className="flex space-x-12 opacity-40">
             <div className="flex flex-col items-center">
               <span className="text-[10px] font-mono font-bold text-blue-400">01</span>
@@ -122,8 +123,8 @@ const App: React.FC = () => {
             </div>
             <div className="max-w-xs mx-auto">
               <p className="text-blue-400 font-mono text-[9px] uppercase tracking-widest leading-loose animate-pulse">
-                &gt; Looking for errors...<br/>
-                &gt; Checking solution database...<br/>
+                &gt; Looking for errors...<br />
+                &gt; Checking solution database...<br />
                 &gt; Building your repair guide...
               </p>
             </div>
@@ -145,9 +146,9 @@ const App: React.FC = () => {
       )}
 
       {state.result && state.image && (
-        <AnalysisView 
-          result={state.result} 
-          imageUrl={state.image} 
+        <AnalysisView
+          result={state.result}
+          imageUrl={state.image}
           grounding={state.grounding || []}
           onReset={reset}
         />
