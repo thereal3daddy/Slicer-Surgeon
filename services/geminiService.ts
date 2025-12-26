@@ -49,7 +49,7 @@ Output the analysis strictly in JSON format matching this schema:
 }`;
 
 export async function analyzePrintFailure(base64Image: string): Promise<{ result: AnalysisResult, grounding: any[] }> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
   const imagePart = {
     inlineData: {
@@ -129,7 +129,7 @@ export async function analyzePrintFailure(base64Image: string): Promise<{ result
 }
 
 export async function getDetailedProcedure(fixTitle: string, diagnosis: string): Promise<string[]> {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
   const prompt = `As a 3D printing engineer, provide a high-granularity, step-by-step procedure for the following fix: "${fixTitle}" for the problem "${diagnosis}". 
   Break it down into 6-10 extremely detailed, easy-to-follow steps for a beginner.
