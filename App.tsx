@@ -4,7 +4,7 @@ import { Layout } from './components/Layout';
 import { AnalysisView } from './components/AnalysisView';
 import { AppState } from './types';
 import { analyzePrintFailure } from './services/geminiService';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const App: React.FC = () => {
   const [state, setState] = useState<AppState & { grounding: any[] | null }>({
