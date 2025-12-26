@@ -33,15 +33,23 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         {children}
       </main>
 
-      <footer className="mt-24 py-12 text-center w-full border-t border-white/5">
+      <footer className="mt-24 py-12 text-center w-full border-t border-white/5 space-y-8">
         <div className="flex flex-col items-center space-y-4">
           <div className="flex space-x-8 opacity-30">
-             <div className="text-[10px] font-mono">LAT: 37.7749</div>
-             <div className="text-[10px] font-mono">LNG: -122.4194</div>
-             <div className="text-[10px] font-mono">SIGNAL: STABLE</div>
+            <div className="text-[10px] font-mono">LAT: 37.7749</div>
+            <div className="text-[10px] font-mono">LNG: -122.4194</div>
+            <div className="text-[10px] font-mono">SIGNAL: STABLE</div>
           </div>
           <p className="text-slate-600 text-[10px] font-mono uppercase tracking-widest">
             &copy; 2025 SLICER SURGEON LABS // AUTOMATED DIAGNOSTICS FOR FDM ADDITIVE MFG.
+          </p>
+        </div>
+
+        <div className="max-w-2xl mx-auto px-4">
+          <p className="text-[10px] md:text-xs text-slate-500 leading-relaxed font-medium">
+            Privacy & Data Usage: This application uses Google Gemini AI to analyze images.
+            Uploaded images are processed in real-time and are not permanently stored on our servers.
+            By using this tool, you agree to our processing of your uploads for the purpose of print diagnosis.
           </p>
         </div>
       </footer>
