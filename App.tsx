@@ -153,6 +153,7 @@ const App: React.FC = () => {
           onReset={reset}
         />
       )}
+      <Analytics />
     </Layout>
   );
 };
